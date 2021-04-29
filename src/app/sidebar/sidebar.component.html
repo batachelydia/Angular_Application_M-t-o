@@ -1,0 +1,14 @@
+<h3>Vos Profils</h3>
+<button (click)="onSaveNewProfile()">Enregistrer la liste</button>
+<article *ngFor="let profile of profiles" class="profile" (click)="onLoadProfile(profile)">
+    <div class="inner">
+        <h4>{{ profile.profileName }}</h4>
+        <div>
+            <em>Villes:</em>
+            <ul>
+                <li *ngFor="let item of profile.cities">{{item.cityName}} <span *ngIf="item.countryCode">({{item.countryCode}})</span></li>
+            </ul>
+        </div>
+    </div>
+    <span class="delete" (click)="onDeleteProfile($event, profile)">[x]</span>
+</article>
